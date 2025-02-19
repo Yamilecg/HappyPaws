@@ -21,7 +21,10 @@ To run this project properly you need to install the next dependencies:
 You can install the dependencies with the next command: `npm i` and the name of the dependecie.
 
 # Mockup application
-
+![Presentacion y filtrado de mascotas](images/images2.jpeg)
+![Registro de mascotas](images/images1.jpeg)
+![Información de raza](images/images4.jep)
+![Información de la mascota](images/images3.jpeg)
 
 # Usage
 Steps to use the web page properly:
