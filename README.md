@@ -9,7 +9,7 @@ A dog adoption website is a dedicated online platform that connects potential pe
 - JavaScript: Used for dynamic and interactive features.
 - [NodeJs](https://nodejs.org/en): Used to run JavaScript code on the server-side.
 - [Bootstrap](https://getbootstrap.com/): Used for responsive design and UI components.
-- [Font Awesome](https://fontawesome.com/): Used for icons .
+- [Font Awesome](https://fontawesome.com/): Used for icons.
 
 # Dependencies
 To run this project properly you need to install the next dependencies:
@@ -25,7 +25,6 @@ You can install the dependencies with the next command: `npm i` and the name of 
 ![Registro de mascotas](images/images1.jpeg)
 ![Información de raza](images/images4.jep)
 ![Información de la mascota](images/images3.jpeg)
-
 
 # Usage
 Steps to use the web page properly:
