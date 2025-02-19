@@ -22,7 +22,6 @@ You can install the dependencies with the next command: `npm i` and the name of 
 
 # Mockup application
 
-
 # Usage
 Steps to use the web page properly:
 - In your favorite code editor clone the repository with the command:
