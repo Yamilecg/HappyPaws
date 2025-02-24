@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HappyPaws</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/WebPage/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/WebPage/views/loginIn.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
+                            <div id = "selectValue" class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item perros" href="#" data-value="Husky">Husky</a>
+                                <a class="dropdown-item perros" href="#" data-value="Labrador">Labrador</a>
+                                <a class="dropdown-item perros" href="#" data-value="Golden Retriever">Golden Retriever</a>
+                                <a class="dropdown-item perros" href="#" data-value="Shih Tzu">Shih Tzu</a>
+                                <a class="dropdown-item perros" href="#" data-value="Border Collie">Border Collie</a>
+                                <a class="dropdown-item perros" href="#" data-value="Caniche Toy">Caniche Toy</a>
+                                <a class="dropdown-item perros" href="#" data-value="Chow Chow">Chow Chow</a>
+                                <a class="dropdown-item perros" href="#" data-value="Beagle">Beagle</a>
+                            </div>
+                        <li class="nav-item"><a class="nav-link" onclick="checkVerificacion()">Adopción</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" onclick="verificarse()">Verificarse</a>
+                                <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">"Donde tus amigos peludos encuentran un hogar"</div>
+                <div class="masthead-heading text-uppercase">Bienvenido a Happy Paws</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#portfolio">Compañeros</a>
+            </div>
+        </header>
+
+        <!-- Program-->
+        <section class="page-section" id="program">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Programa</h2>
+                    <h3 class="section-subheading text-muted">Bienvenido a Happy Paws</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-dog fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Adopta</h4>
+                        <p class="text-muted">Nuestra sección "Adopta" te ofrece la oportunidad de conocer a amigos peludos listos para convertirse en parte de tu familia. Explora perfiles detallados, fotos y encuentra el compañero peludo que se adapte perfectamente a tu estilo de vida. ¡Haz de la adopción una experiencia emocionante y llena de alegría!</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-paw fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Da en adopción</h4>
+                        <p class="text-muted">¿Tu peludo amigo merece un hogar lleno de amor? Con nuestra sección "Da en Adopción", puedes ofrecer a tu mascota la oportunidad de vivir una nueva y emocionante etapa. Muestra a tu amiguito con estilo, destacando sus cualidades únicas, y conecta con personas que están ansiosas por brindarle un hogar lleno de amor y cuidado. ¡Ayúdanos a crear historias felices de adopción!</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shield-dog fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Apoya la causa</h4>
+                        <p class="text-muted">Únete a la revolución del bienestar canino. Con "Apoya la Causa", haz del mundo un lugar mejor para los perros necesitados. Dona para marcar la diferencia, participa en emocionantes oportunidades de voluntariado. Descubre cómo tu apoyo activo transforma vidas y crea finales felices para cada cola. ¡Haz que tu amor por los perros se traduzca en acciones concretas!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Nuestros Amigos</h2>
+                    <h3 class="section-subheading text-muted">Algunos de nuestras huellitas listas para darte su amor incondicional</h3>
+                </div>
+                <div>
+                    <h4 class="my-3">Filtra por: </h4>
+                    <p class="d-inline bold-text" style = "font-size: 21px; margin-left:5%; margin-top: -100px">Raza </p>
+                    <select id = "filtro" name="opciones" class = "normal-text" style=" margin: 1px; width:150px">
+                        <option  value="Ninguno"> Ninguno</option>
+                        <option  value="Husky"> Husky</option>
+                        <option  value="Border Collie"> Border Collie </option>
+                        <option value="Golden Retriever"> Golden Retriever</option>
+                        <option value="Bulldog"> Bulldog</option>
+                        <option  value="Beagle"> Beagle</option>
+                        <option  value="Shih Tzu"> Shih Tzu</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div id="dogInfoIndex"> </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <ul id="pagination" class="pagination">
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Proceso de adopción</h2>
+                    <h3 class="section-subheading text-muted">Te mostramos cuál el es proceso para que puedas llevar un amigo peludo a casa</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>1.</h4>
+                                <h4 class="subheading">Inicia sesión</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Es importante que cada usuario interesado en adoptar, inicie sesión en nuestra plataforma para que las familias de los perros en adopción tengan acceso a su contacto y a su perfil promoviendo un ambiente de confianza entre ambas partes. Recuerda que nosotros únicamente somos intermediarios y buscamos facilitarte el proceso para llevar a un amigo a casa.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2.</h4>
+                                <h4 class="subheading">Busca a tu amigo</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Explora nuestra página y busca por medio de filtros y categorías a los amigos que más se ajusten a tu estilo de vida</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>3.</h4>
+                                <h4 class="subheading">Contacta a la familia del amigo peludo</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Una vez que encuentres al amigo peludo que más se adapte a tu estilo de vida y al que te comprometas a cuidar, ponte en contacto con su familia (con la información que se encuentra en la descripción del amigo peludo)</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>4. </h4>
+                                <h4 class="subheading">Confirma la adopción</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Si la familia del amigo peludo considera que eres apto, te harán llegar una aprobación y nosotros daremos de baja a tu amigo peludo de la página para que los demás sepan que ha encontrado un hogar.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/5.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>3.</h4>
+                                <h4 class="subheading">Recibe a tu amigo peludo</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">La familia del amigo peludo se mantendrá en contacto contigo para acordar la entrega y finalmente podrás recibir a tu amigo peludo</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Hiciste A
+                                <br />
+                                Un Perrito
+                                <br />
+                                Feliz!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Nuestro Equipo</h2>
+                    <h3 class="section-subheading text-muted">El mejor equipo del condado</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/WebPage/assets/img/team/arlynpractica.png" alt="..." />
+                            <h4>Arlyn</h4>
+                            <p class="text-muted">Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/arlyn_linette/" target="_blank" aria-label="Parveen Anand Twitter Profile"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/valentinadiana.medinagarcia" target="_blank" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/arlynmedina" target="_blank" aria-label="Parveen Anand LinkedIn Profile"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/WebPage/assets/img/team/duchopractica.png" alt="..." />
+                            <h4>Ducho</h4>
+                            <p class="text-muted">Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/armaando_va/" target="_blank" aria-label="Diana Petersen Twitter Profile"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100011048295853" aria-label="Diana Petersen Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/ArmandoVidrio" target="_blank" aria-label="Diana Petersen LinkedIn Profile"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/WebPage/assets/img/team/ximenapractica.png" alt="..." />
+                            <h4>Ximena</h4>
+                            <p class="text-muted">Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/ximeiisaac/" target="_blank" aria-label="Larry Parker Twitter Profile"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ximena.isaac.5" target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Por dios que buenos somos.</p></div>
+                </div>
+            </div>
+        </section>
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container brands-container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="/WebPage/assets/img/logos/proplan.png" alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="/WebPage/assets/img/logos/royalCanin.png" alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="/WebPage/assets/img/logos/nupec.png" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="/WebPage/assets/img/logos/dogChow.png" alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; HappyPaws 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://x.com/nuevavidaadop?s=11" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/groups/2198970630425783" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/dejandohuellagdl/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3">Políticas de privacidad</a>
+                        <a class="link-dark text-decoration-none">Términos y condiciones</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/WebPage/js/scripts.js"></script>
+        <script src="/WebPage/js/index.js"></script>
+        <script src="/WebPage/js/loginIn.js"></script>
+    </body>
+</html>
