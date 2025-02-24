@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/WebPage/css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/WebPage/views/loginIn.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
+                        <div id = "selectValue" class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item perros" href="#" data-value="Husky">Husky</a>
+                            <a class="dropdown-item perros" href="#" data-value="Labrador">Labrador</a>
+                            <a class="dropdown-item perros" href="#" data-value="Golden Retriever">Golden Retriever</a>
+                            <a class="dropdown-item perros" href="#" data-value="Shih Tzu">Shih Tzu</a>
+                            <a class="dropdown-item perros" href="#" data-value="Border Collie">Border Collie</a>
+                            <a class="dropdown-item perros" href="#" data-value="Caniche Toy">Caniche Toy</a>
+                            <a class="dropdown-item perros" href="#" data-value="Chow Chow">Chow Chow</a>
+                            <a class="dropdown-item perros" href="#" data-value="Beagle">Beagle</a>
+                        </div>
+                        <li class="nav-item"><a class="nav-link" onclick="checkVerificacion()">Adopción</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" onclick="verificarse()">Verificarse</a>
+                                <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
+<<<<<<< HEAD
+                </ul>
+=======
+                    </ul>
+                </div>
+>>>>>>> ducho
+            </div>
+        </nav>
+
+    <header>
+        <img src="/WebPage/assets/img/dogs/uploadDog.jpg" style="height: 450px; object-fit: cover; object-position: center bottom; " alt="...">
+        <div class="header-text-container">
+            <div class="masterhead-heading">Has elegido poner un perro en adopción</div>
+        </div>
+    </header>
+
+  <main>
+    
+        <div class="container">
+            <br>
+            <h3 class="text-primary bold-text text-center">Completa la siguiente información del perro a ser adoptado</h3>
+            <div class="row">
+                <div class="col-lg-7">
+                    <br><br>
+                    <h6 class="mb-4 d-inline bold-text" >Nombre: </h6><input id = "nombre" class="mb-4 d-inline normal-text" type = "text" placeholder="Ingrese el nombre" style=" margin: 1px;"></input><br>
+                    <h6 class="mb-4 d-inline bold-text" >Edad: </h6><input id = "edad" class="mb-4 d-inline normal-text" type = "number" min="0" step="1" placeholder="Ingrese la edad en años" style=" margin: 1px;"></input><br>
+                    <h6 class="mb-4 d-inline bold-text">Raza: </h6>
+                    <select id="raza" name="opciones" class = "normal-text" style=" margin: 1px;">
+                        <option value="Husky"> Husky</option>
+                        <option value="Collie"> Collie </option>
+                        <option value="Golden Retriever"> Golden Retriever</option>
+                        <option value="Bulldog"> Bulldog</option>
+                        <option value="Beagle"> Beagle</option>
+                        <option value="Shih Tzu"> Shih Tzu</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                    </select><br><br>
+                    <h6 class="mb-4 d-inline bold-text" >Color: </h6><input id = "color" class="d-inline normal-text" type = "text" placeholder="Ingrese el color del perro" style=" margin: 1px;"></input><br><br>
+                    <h6 class = "bold-text">Nivel de energía:</h6>
+                    <div class="rating" id="energia">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div><br>
+                    <h6 class = "bold-text">Historial médico: </h6>
+                    <p class="normal-text">Vacunas Recientes (Escriba ninguna si aplica): </p>
+                    <div id="input-historial">
+                        <input type="text" name=0 placeholder="Ingresa la vacuna" class = "input-text" onblur="agregarValor(this)">
+                    </div>
+                    <button type = "button" onclick="agregarInput()"  class ="button-inputs" style="margin-left: 20%;">Agregar</button>
+                    <button type = "button" onclick="eliminarInput()" class ="button-inputs" style="margin-left:5%;">Eliminar</button><br><br>
+                    <h6 class = "bold-text">Problemas de Salud Anteriores: </h6>
+                    <div id="input-salud">
+                        <input type="text" name=0 placeholder="Ingresa el problema" class = "input-text" onblur="agregarValor2(this)">
+                    </div>
+                    <button type = "button" onclick="agregarInput2()"  class ="button-inputs" style="margin-left: 20%;">Agregar</button>
+                    <button type = "button" onclick="eliminarInput2()" class ="button-inputs" style="margin-left:5%;">Eliminar</button><br><br>
+                    </ul>
+                    
+                    <h6 class = "bold-text">Medicamentos Actuales: </h6>
+                    <textarea id = "medicamentos" class="d-inline textarea-medicamentos" placeholder="Ingrese medicamentos"></textarea>
+                    <h6 class = "bold-text">Descripción general: </h6>
+                    <textarea id = "descripcion" class="d-inline textarea-descripcion" placeholder="Ingrese descripción"></textarea>
+                </div>
+
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <br><br>
+                    <h6 class="mb-4 bold-text" >Inserta imágen del perro: </h6>
+                    <div class="custom-file-upload">
+                        <input type="file" id="fileInput" name="myfiles[]"/>
+                    </div>
+
+                    <br>
+                    <h5>Información de Contacto: </h5>
+                    <h6 class="d-inline bold-text" ><i class="fa-solid fa-location-dot" style="color: #00000a;"></i> Dirección: </h6><p class="d-inline normal-text" ><input id = "direccion" class="d-inline normal-text" type = "text" placeholder="Ingrese su dirección" style="margin: 1px; margin-bottom: 15px;"></input></p><br>
+                    <h6 class="d-inline bold-text"><i class="fa-solid fa-phone" style="color: #00000a;"></i> Teléfono: </h6><p class="d-inline normal-text" ><input id = "telefono" class="d-inline normal-text" type = "text" placeholder="Ingrese su número" style="margin: 1px; margin-left:5px; margin-bottom: 15px;"></input></p><br>
+                    <h6 class="d-inline bold-text"><i class="fa-solid fa-envelope" style="color: #00000a;"></i> Correo: </h6><p class="d-inline normal-text" ><input id= "correo" class="d-inline normal-text" type = "email" placeholder="Ingrese su correo" style="margin: 1px; margin-left:20px"></input></p><br>
+                </div>
+            </div>
+        </div>
+<<<<<<< HEAD
+        <button id = "submit-dog"  class ="button-inputs" style = "margin-left: 50%; height:40px; width:100px; background-color: #f4bf6c; color: white;" onclick ="moverPerro()" >Submit</button>
+=======
+        <button id = "submit-dog"  class ="button-inputs" style = "margin-left: 50%; height:40px; width:100px; background-color: #f4bf6c; color: white;" onclick="moverPerro()">Submit</button>
+>>>>>>> ducho
+    
+
+</main>
+    <footer>
+    <img class="img-fluid" src="/WebPage/assets/img/dogs/footer4.png" style="max-width: 100%;" alt="">
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+    <script src="/WebPage/js/uploadDog.js"></script>
+    <script src="/WebPage/js/scripts.js"></script>
+    <script src="/WebPage/js/loginIn.js"></script>
+    
+</body>
+
+</html>
