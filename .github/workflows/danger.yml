@@ -1,0 +1,26 @@
+name: Danger
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # O la versión que prefieras
+
+      - name: Install Danger gem
+        run: gem install danger
+
+      - name: Run Danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: danger --fail-on-errors=true
