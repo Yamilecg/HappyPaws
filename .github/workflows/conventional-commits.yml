@@ -1,0 +1,21 @@
+name: Conventional Commits Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Enforce Conventional Commits
+        uses: webiny/action-conventional-commits@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

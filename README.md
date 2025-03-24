@@ -33,4 +33,4 @@ Steps to use the web page properly:
 - Install the dependices from before
 - Run the server with the command: `node server.js`
 - Open the index.html (Live server is recommend)
-Thats can you use the webpage
+Thats can you use the webpage.
