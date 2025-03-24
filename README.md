@@ -20,12 +20,6 @@ To run this project properly you need to install the next dependencies:
 - [bcrypt]: Used to encrypt all the users passwords to save in the database.
 You can install the dependencies with the next command: `npm i` and the name of the dependecie.
 
-# Mockup application
-![Presentacion y filtrado de mascotas](images/images2.jpeg)
-![Registro de mascotas](images/images1.jpeg)
-![Información de raza](images/images4.jep)
-![Información de la mascota](images/images3.jpeg)
-
 # Usage
 Steps to use the web page properly:
 - In your favorite code editor clone the repository with the command:
@@ -34,3 +28,9 @@ Steps to use the web page properly:
 - Run the server with the command: `node server.js`
 - Open the index.html (Live server is recommend)
 Thats can you use the webpage.
+
+# Mockup application
+![Presentacion y filtrado de mascotas](assets/mock_images/images2.jpeg)
+![Registro de mascotas](assets/mock_images/images1.jpeg)
+![Información de raza](assets/mock_images/images4.jpeg)
+![Información de la mascota](assets/mock_images/images3.jpeg)
