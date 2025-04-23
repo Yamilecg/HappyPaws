@@ -6,6 +6,7 @@ const collection = db.collection('dogs');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId; 
 
+
 //modelo 
 const Dog = require("../models/DogModel");
 
@@ -54,7 +55,7 @@ router.get("/dogs/id/:id",async(req,res)=>{
         return res.status(400).json({ error: 'Id no válido' });
     }
 
-    collection.findOne({_id: new ObjectId(id)},(error,resultado)=>{
+    collection.findOne({_id: ObjectId(id)},(error,resultado)=>{
         if(error){
             console.error("Error en la busqueda del perro");
         }else{
@@ -74,7 +75,7 @@ router.delete("/dogs/id/:id", (req, res) => {
         return res.status(400).json({ error: 'Id no válido' });
     }
 
-    collection.deleteOne({ _id: new ObjectId(id) }, (error, resultado) => {
+    collection.deleteOne({ _id: ObjectId(id) }, (error, resultado) => {
         if (error) {
             return res.status(500).json({ error: 'Error interno del servidor' });
         }

@@ -125,7 +125,6 @@ router.put('/users/updateList/:correo', async (req, res) => {
         }
         res.json(usuarioActualizado);
     } catch (error) {
-        console.error(error);
         res.status(500).json({ mensaje: 'Error interno del servidor' });
     }
 });
