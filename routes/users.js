@@ -49,7 +49,7 @@ router.get('/users/:correo/:contra',async(req,res)=>{
 
         //si encontramos al usuario vemos si la contra que nos pasan es la correcta
         }else{
-            if(usuario.compararContra(contra)){
+            if(await usuario.compararContra(contra)){
                 //si nos regresa true es que la contra es correcta tons devolvemos el usuario
                 res.status(200).json(usuario);
             }else{

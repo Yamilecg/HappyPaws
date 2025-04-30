@@ -133,6 +133,7 @@ describe('User Routes', () => {
         contra: 'hashedpassword',
         perrosDadosEnAdopcion: [],
         verificado: true,
+        compararContra: jest.fn().mockResolvedValue(true),
       };
 
       // Setup mock
