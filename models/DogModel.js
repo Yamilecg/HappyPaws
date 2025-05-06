@@ -1,5 +1,5 @@
 ///imports
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 ///ESQUEMA DE LOS USUARIOS
 const {Schema,model} = require('mongoose');
