@@ -1,6 +1,6 @@
 const request = require('supertest');
 const express = require('express');
-const path = require('path');
+const mockPath = require('path');
 const fs = require('fs');
 const uploadRouter = require('../../routes/archivos'); // Ajusta esta ruta al nombre de tu archivo
 
@@ -17,7 +17,7 @@ jest.mock('multer', () => {
         
         req.file = {
           originalname: req.body._test_filename || 'test-image.jpg',
-          path: path.join(__dirname, 'assets/img/uploadedDogs/test-image.jpg'),
+          mockPath: mockPath.join(__dirname, 'assets/img/uploadedDogs/test-image.jpg'),
           filename: req.body._test_filename || 'test-image.jpg'
         };
         next();
@@ -38,7 +38,7 @@ describe('Upload Router Tests', () => {
     app.use('/api', uploadRouter);
     
     // Aseguramos que exista el directorio de destino para las pruebas
-    const uploadDir = path.join(__dirname, 'assets/img/uploadedDogs');
+    const uploadDir = mockPath.join(__dirname, 'assets/img/uploadedDogs');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
