@@ -7,7 +7,7 @@ function showDogInfoIndex(pageNumber) {
     const dogsPerPage = 6; 
     let items = '';
     let dogInfoIndex = document.getElementById('dogInfoIndex');
-    const path = '../assets/img/uploadedDogs/';
+    const path = 'assets/img/uploadedDogs/';
     let filtroRaza = document.getElementById('filtro');
     pageNumber = pageNumber || 1;
 
@@ -22,7 +22,7 @@ function showDogInfoIndex(pageNumber) {
                 const dog = dogs[i];
                 items += `<div class="col-lg-4 col-sm-6 mb-4">
                     <div id="dog-description" class="portfolio-item">
-                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                        <a class="portfolio-link" href="dogDescription.html">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -42,7 +42,7 @@ function showDogInfoIndex(pageNumber) {
                 if (dog.raza == filtroRaza.value) {
                     items += `<div class="col-lg-4 col-sm-6 mb-4">
                     <div id="dog-description" class="portfolio-item">
-                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                        <a class="portfolio-link" href="dogDescription.html">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -71,7 +71,7 @@ function showDogInfoIndex(pageNumber) {
                 sessionStorage.setItem('selectedDogId', idDog);
 
                 // Redirect to the other page
-                window.location.href = '../views/dogDescription.html';
+                window.location.href = 'dogDescription.html';
             });
         });
 

@@ -44,50 +44,45 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-function cambiarHome(){
+function cambiarHome() {
     // Obtén los elementos de input
-    let inputCorreo = document.getElementById("input-correo-iniciar-sesion");
-    let inputContra = document.getElementById("contra-iniciar-sesion");
-    
+    const inputCorreo = document.getElementById("input-correo-iniciar-sesion");
+    const inputContra = document.getElementById("contra-iniciar-sesion");
+
     // Obtén el valor de los inputs
-    let correoUsuario = inputCorreo.value;
-    let contraUsuario = inputContra.value;
+    const correoUsuario = inputCorreo.value;
+    const contraUsuario = inputContra.value;
 
-    // Hacer una llamada al servidor para verificar si el usuario ya tiene una cuenta con nosotros
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:3000/users/' + correoUsuario+"/"+contraUsuario);
+    // Hacer una llamada al servidor usando fetch
+    fetch(`http://localhost:3000/users/${correoUsuario}/${contraUsuario}`)
+        .then(response => {
+            console.log("EL STATUS DE LA LLAMADA ES: " + response.status);
 
-    xhr.send();
+            if (response.status === 200) {
+                alert("Bienvenido");
 
-    xhr.onload = function(){
-        //vemos el codigo que nos regrese la llamada
-        const statusCode = xhr.status;
-        console.log("EL STATUS DE LA LLAMADA ES: "+statusCode);
-        if(statusCode===200){
-            ///le damos la bienvenida
-            alert("Bienvenido");
-            ///agregamos al session storage el correo del usuario
-            sessionStorage.setItem("correoUsuario",correoUsuario);
-            ///cuando inicia sesion creamos la lista de imagenes de perros que vamos a necesitar
-            let lista = []
-            sessionStorage.setItem("ListaImagenesPerros",JSON.stringify(lista));
-            
-            //si coinciden lo mandamos al otro index
-            window.location.replace("../views/loginIn.html","_self");
-        }else if (statusCode===404){
-            //la contra y el usuario no coinciden
-            alert("Correo o contraseña incorrecta");
-            //ponemos en blanco los inputs
-            inputCorreo.value="";
-            inputContra.value="";
-        }else{
-            alert("Correo o contraseña incorrecta");
-            //ponemos en blanco los inputs
-            inputCorreo.value="";
-            inputContra.value="";
-        };
-    };
-};
+                // Guardar en sessionStorage
+                sessionStorage.setItem("correoUsuario", correoUsuario);
+                sessionStorage.setItem("ListaImagenesPerros", JSON.stringify([]));
+
+                // Redireccionar
+                window.location.replace("loginIn.html");
+            } else if (response.status === 404) {
+                alert("Correo o contraseña incorrecta");
+                inputCorreo.value = "";
+                inputContra.value = "";
+            } else {
+                alert("Error inesperado al iniciar sesión");
+                inputCorreo.value = "";
+                inputContra.value = "";
+            }
+        })
+        .catch(error => {
+            console.error("Error al realizar la solicitud:", error);
+            alert("Hubo un problema al conectar con el servidor.");
+        });
+}
+
 
 function verificarse() {
     // Checamos si ya está verificado
@@ -105,7 +100,7 @@ function verificarse() {
             if (usuario.verificado === true) {
                 alert("Ya estas verificado");
             } else {
-                window.open('../views/certifiedUser.html', '_self');
+                window.open('certifiedUser.html', '_self');
             }
         };
     }
@@ -175,7 +170,7 @@ function checkVerificacion(){
             alert("Necesitas verificarte para poner en adopción a un perro");
             return false;
         }else{
-            window.open('../views/userAdoptions.html','_self');
+            window.open('userAdoptions.html','_self');
         };
     };   
 }
@@ -202,5 +197,5 @@ function _checkVerification(){
 function cerrarSesion(){
     //eliminamos el usuario del session storage
     sessionStorage.removeItem("correoUsuario");
-    window.location.replace("../views/index.html","_self");
+    window.location.replace("index.html","_self");
 }
