@@ -4,10 +4,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
-@given('El usuario abre la página de razas')
+@given('El usuario abre la página de descripción del perro')
 def step_open_page(context):
     context.driver = webdriver.Chrome()
-    context.driver.get('http://127.0.0.1:5500/views/dogBreedInfo.html')
+    context.driver.get('http://127.0.0.1:5500/views/dogDescription.html')   
     context.driver.maximize_window()
 
 @when('Selecciona la raza "{breed}"')
