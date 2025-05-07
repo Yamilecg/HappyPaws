@@ -34,33 +34,40 @@ router.get('/users/:correo',async(req,res)=>{
     }
 });
 
-router.get('/users/:correo/:contra',async(req,res)=>{
-    try{
-        //obtenemos el correo y contra del usuario que nos pasen
-        const correo = req.params.correo;
-        const contra = req.params.contra;
-
-        //buscamos el correo para ver si tenemos en la database
-        const usuario = await User.findOne({correo:correo});
-        
-        //verificar si encontramos el usuario
-        if(!usuario){
-            return res.status(404).json({mensaje:"Usuario no encontrado"});
-
-        //si encontramos al usuario vemos si la contra que nos pasan es la correcta
-        }else{
-            if(usuario.compararContra(contra)){
-                //si nos regresa true es que la contra es correcta tons devolvemos el usuario
-                res.status(200).json(usuario);
-            }else{
-                //la contra que nos pasaron es erroneo
-                res.status(500).send("Usuario y contras no coinciden");
-            }
-        }
-    }catch(error){
-        res.status(500).send("Error al obtener el usuario"+error.message);
+router.get('/users/:correo/:contra', async (req, res) => {
+    try {
+      const correo = req.params.correo;
+      const contra = req.params.contra;
+  
+      // Search for the user by email
+      const usuario = await User.findOne({ correo: correo });
+  
+      // If user not found, return a 404
+      if (!usuario) {
+        return res.status(404).json({ mensaje: "Usuario no encontrado" });
+      }
+  
+      // If user found, check if the password matches
+      if (await usuario.compararContra(contra)) {
+        // If password matches, return the user data
+        res.status(200).json({
+          _id: usuario._id,
+          nombre: usuario.nombre,
+          apellidos: usuario.apellidos,
+          correo: usuario.correo,
+          perrosDadosEnAdopcion: usuario.perrosDadosEnAdopcion,
+          verificado: usuario.verificado,
+        });
+      } else {
+        // If password doesn't match, return 401 Unauthorized
+        res.status(401).json({ mensaje: "Usuario y contras no coinciden" });
+      }
+    } catch (error) {
+      // If there's an error, return 500
+      res.status(500).send("Error al obtener el usuario: " + error.message);
     }
-});
+  });
+  
 
 router.post('/users',async(req,res)=>{
     try{
