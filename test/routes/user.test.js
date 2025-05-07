@@ -1,7 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 const mongoose = require('mongoose');
-const User = require('../../models/UserModel'); // Adjust path if needed
+const User = require('../../models/UserModel'); 
 
 jest.mock('../../models/UserModel');
 const app = require('../../app');
@@ -126,14 +126,14 @@ describe('User Routes', () => {
     it('should return user when credentials are correct with status 200', async () => {
       // Mock data
       const mockUser = {
-        _id: '1', 
-        nombre: 'Juan', 
-        apellidos: 'Perez', 
+        _id: '1',
+        nombre: 'Juan',
+        apellidos: 'Perez',
         correo: 'juan@test.com',
         contra: 'hashedpassword',
         perrosDadosEnAdopcion: [],
         verificado: true,
-        compararContra: jest.fn().mockResolvedValue(true),
+        compararContra: jest.fn().mockResolvedValue(true), // Password comparison is correct
       };
 
       // Setup mock
@@ -144,7 +144,14 @@ describe('User Routes', () => {
 
       // Assert response
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(mockUser);
+      expect(response.body).toEqual({
+        _id: '1',
+        nombre: 'Juan',
+        apellidos: 'Perez',
+        correo: 'juan@test.com',
+        perrosDadosEnAdopcion: [],
+        verificado: true,
+      }); // Excluding password
       expect(User.findOne).toHaveBeenCalledWith({ correo: 'juan@test.com' });
       expect(mockUser.compararContra).toHaveBeenCalledWith('password123');
     });
@@ -162,17 +169,17 @@ describe('User Routes', () => {
       expect(User.findOne).toHaveBeenCalledWith({ correo: 'nonexistent@test.com' });
     });
 
-    it('should return 500 when password is incorrect', async () => {
+    it('should return 401 when password is incorrect', async () => {
       // Mock data with incorrect password
       const mockUser = {
-        _id: '1', 
-        nombre: 'Juan', 
-        apellidos: 'Perez', 
+        _id: '1',
+        nombre: 'Juan',
+        apellidos: 'Perez',
         correo: 'juan@test.com',
         contra: 'hashedpassword',
         perrosDadosEnAdopcion: [],
         verificado: true,
-        compararContra: jest.fn().mockReturnValue(false) // Password comparison fails
+        compararContra: jest.fn().mockResolvedValue(false), // Password comparison fails
       };
 
       // Setup mock
@@ -182,8 +189,8 @@ describe('User Routes', () => {
       const response = await request(app).get('/users/juan@test.com/wrongpassword');
 
       // Assert response
-      expect(response.status).toBe(500);
-      expect(response.text).toBe('Usuario y contras no coinciden');
+      expect(response.status).toBe(401); // Unauthorized (incorrect password)
+      expect(response.body).toEqual({ mensaje: 'Usuario y contras no coinciden' }); // Error message for incorrect password
       expect(User.findOne).toHaveBeenCalledWith({ correo: 'juan@test.com' });
       expect(mockUser.compararContra).toHaveBeenCalledWith('wrongpassword');
     });
@@ -201,6 +208,7 @@ describe('User Routes', () => {
       expect(User.findOne).toHaveBeenCalledWith({ correo: 'error@test.com' });
     });
   });
+
 
   // Test 4: POST /users - Create a new user
   describe('POST /users', () => {
