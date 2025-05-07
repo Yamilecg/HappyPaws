@@ -1,14 +1,13 @@
 FROM nginx:alpine
 
-
 WORKDIR /usr/share/nginx/html/
 
-# Copia los archivos del frontend
-COPY views views/
+# Copiar los archivos del frontend necesarios
+COPY views/ ./
 
-COPY css css/
-
-COPY assets assets/
+COPY css/ css/
+COPY assets/ assets/
+COPY js/ js/
 
 EXPOSE 80
 

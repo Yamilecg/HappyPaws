@@ -11,7 +11,7 @@ dropdownItems.forEach(item => {
         sessionStorage.setItem('selectedValue', selectedValue);
 
                 // Redirige a la otra página
-        window.location.href = '../views/dogBreedInfo.html';
+        window.location.href = 'dogBreedInfo.html';
     });
 });
 
