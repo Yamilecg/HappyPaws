@@ -6,7 +6,6 @@ const collection = db.collection('dogs');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId; 
 
-
 //modelo 
 const Dog = require("../models/DogModel");
 
@@ -87,9 +86,6 @@ router.delete("/dogs/id/:id", (req, res) => {
         }
     });
 });
-
-
-
 
 //ruta POST
 router.post('/dogs', async (req, res) => {
