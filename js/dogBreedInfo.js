@@ -27,7 +27,7 @@ function showDogInfo(selectedValue){
             </div>
         </li>
         <li class="timeline-inverted">
-            <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/health.jpg" alt="..." /></div>
+            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/health.jpg" alt="..." /></div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
                     <h4 class="bold-text">Salud</h4>
@@ -45,7 +45,7 @@ function showDogInfo(selectedValue){
             </div>
         </li>
         <li class="timeline-inverted">
-            <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/food.png" alt="..." /></div>
+            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/food.png" alt="..." /></div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
                     <h4 class="bold-text">Nutrición</h4>
