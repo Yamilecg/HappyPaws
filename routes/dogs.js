@@ -42,7 +42,7 @@ router.get("/dogs/:nombre",async(req,res)=>{
     }
 });
 
-//ruta de perros en especifico por id
+// ruta de perros en especifico por id
 router.get("/dogs/id/:id",async(req,res)=>{
 
     const id = req.params.id;
@@ -54,7 +54,7 @@ router.get("/dogs/id/:id",async(req,res)=>{
         return res.status(400).json({ error: 'Id no válido' });
     }
 
-    collection.findOne({_id: new ObjectId(id)},(error,resultado)=>{
+    collection.findOne({_id: ObjectId.id},(error,resultado)=>{
         if(error){
             console.error("Error en la busqueda del perro");
         }else{
@@ -74,7 +74,7 @@ router.delete("/dogs/id/:id", (req, res) => {
         return res.status(400).json({ error: 'Id no válido' });
     }
 
-    collection.deleteOne({ _id: new ObjectId(id) }, (error, resultado) => {
+    collection.deleteOne({ _id: ObjectId.id }, (error, resultado) => {
         if (error) {
             return res.status(500).json({ error: 'Error interno del servidor' });
         }
@@ -86,9 +86,6 @@ router.delete("/dogs/id/:id", (req, res) => {
         }
     });
 });
-
-
-
 
 //ruta POST
 router.post('/dogs', async (req, res) => {

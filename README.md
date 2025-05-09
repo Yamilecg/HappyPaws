@@ -10,6 +10,9 @@ A dog adoption website is a dedicated online platform that connects potential pe
 - [NodeJs](https://nodejs.org/en): Used to run JavaScript code on the server-side.
 - [Bootstrap](https://getbootstrap.com/): Used for responsive design and UI components.
 - [Font Awesome](https://fontawesome.com/): Used for icons.
+- Jest: Used for unit testing.
+- Selenium: Used for web testing.
+- Behave: Used to implement BDD.
 
 # Dependencies
 To run this project properly you need to install the next dependencies:

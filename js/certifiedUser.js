@@ -48,5 +48,5 @@ function certificarUsuario(){
     xhr2.open("PUT","http://localhost:3000/users/"+correoUsuario);
     xhr2.send(JSON.stringify(usuarioACambiar));
     alert("Ahora eres un usuario verificado");
-    window.open("../views/loginIn.html","_self");
+    window.open("/loginIn.html","_self");
 };
