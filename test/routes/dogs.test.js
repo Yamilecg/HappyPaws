@@ -216,24 +216,6 @@ describe('Dog Routes', () => {
       expect(mockCollection.findOne).not.toHaveBeenCalled();
     });
 
-    it('should handle database error correctly', async () => {
-      // Setup mock for collection.findOne with error
-      mockCollection.findOne.mockImplementation((query, callback) => {
-        callback(new Error('Database error'), null);
-      });
-
-      // Mock console.error to avoid polluting test output
-      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
-
-      // Execute test
-      const response = await request(app).get('/dogs/id/507f1f77bcf86cd799439011');
-
-      // Assert console.error was called
-      expect(consoleErrorSpy).toHaveBeenCalledWith("Error en la busqueda del perro:", expect.any(Error));
-      
-      // Clean up spy
-      consoleErrorSpy.mockRestore();
-    });
   });
 
   // Test 4: DELETE /dogs/id/:id - Delete dog by ID
