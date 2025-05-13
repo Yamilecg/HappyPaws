@@ -57,6 +57,7 @@ router.get("/dogs/id/:id",async(req,res)=>{
     collection.findOne({_id: ObjectId.id},(error,resultado)=>{
         if(error){
             console.error("Error en la busqueda del perro");
+            res.status(500).json({error:"Error interno del servidor"});
         }else{
             res.status(200).json(resultado)
         }
