@@ -1,8 +1,7 @@
-# features/login.feature
-Feature: Login functionality
+Feature: Buscar información de una raza de perro
 
-Background: The background scenario sets up the pre-requisites & basic configurations needed to run the test
-    Given the user opens main page
-    Then wait until page is open
-    # Then close all windows
+  Scenario: El usuario selecciona la raza "Chow Chow"
+    Given El usuario abre la página de razas
+    When Selecciona la raza "Chow Chow"
+    Then Se muestra información relacionada con "Chow Chow"
 
