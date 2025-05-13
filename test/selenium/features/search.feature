@@ -7,5 +7,3 @@ Feature: User Login
     And I enter the registered password "123"
     And I click the "Iniciar sesión" button on the login form
     Then I should be logged in successfully
-
-

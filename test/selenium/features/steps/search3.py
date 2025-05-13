@@ -30,5 +30,4 @@ def step_verify_husky_displayed(context):
     selected_breed_value = selected_breed.get_attribute('value')
 
     assert selected_breed_value == "Husky"
-
     context.driver.quit()

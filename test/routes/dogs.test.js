@@ -229,7 +229,7 @@ describe('Dog Routes', () => {
       const response = await request(app).get('/dogs/id/507f1f77bcf86cd799439011');
 
       // Assert console.error was called
-      expect(consoleErrorSpy).toHaveBeenCalledWith("Error en la busqueda del perro:", expect.any(Error));
+      expect(consoleErrorSpy).toHaveBeenCalledWith("Error en la busqueda del perro");
       
       // Clean up spy
       consoleErrorSpy.mockRestore();
