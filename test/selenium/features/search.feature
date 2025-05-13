@@ -9,4 +9,3 @@ Feature: User Login
     Then I should be logged in successfully
 
 
-
