@@ -26,8 +26,14 @@ Steps to use the web page properly:
 `git clone https://github.com/arlynmedina/WebPage.git`
 - Install the dependices from before
 - Run the server with the command: `node server.js`
-- Open the index.html (Live server is recommend)
-Thats can you use the webpage.
+- Open the index.html (Live server is recommend) or you can run the app with docker (see instructions below).
+
+# Run application in container
+Build image:
+- `docker build . -t front-app-happy-paws`
+
+Run application:
+- `docker run -d -p 80:80 front-app-happy-paws`
 
 # Mockup application
 ![Presentacion y filtrado de mascotas](assets/mock_images/images2.jpeg)
