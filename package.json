@@ -11,7 +11,7 @@
   "jest": {
     "collectCoverage": true,
     "coverageReporters": [
-      "text",
+      "json-summary",
       "text-summary",
       "lcov"
     ]},
