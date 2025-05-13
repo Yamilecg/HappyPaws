@@ -5,6 +5,6 @@ Feature: Filtrado de perros en adopción
     When El usuario selecciona "Husky" en el filtro de raza
     Then El filtro de raza muestra "Husky"
 
-
   
+
 
