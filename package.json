@@ -8,6 +8,13 @@
     "dev": "nodemon server.js",
     "test": "jest"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "text-summary",
+      "lcov"
+    ]},
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
