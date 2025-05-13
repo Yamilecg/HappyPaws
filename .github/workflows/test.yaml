@@ -1,4 +1,4 @@
-name: Run Unit Tests with Coverage Report
+name: Run Unit Tests and Report Coverage
 
 on:
   pull_request:
@@ -22,24 +22,52 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests with coverage
+      - name: Run tests with coverage threshold
         run: |
-          npx jest --coverage --testLocationInResults \
-            --coverageReporters=json-summary \
-            --coverageThreshold='{
-              "global": {
-                "branches": 80,
-                "functions": 80,
-                "lines": 80,
-                "statements": 80
-              }
-            }'
+          npx jest --coverage --coverageThreshold='{
+            "global": {
+              "branches": 80,
+              "functions": 80,
+              "lines": 80,
+              "statements": 80
+            }
+          }' --coverageReporters="text-summary" > coverage.txt
 
-      - name: Publish test report
-        uses: dorny/test-reporter@v1
-        if: success() || failure() # siempre corre, incluso si fallan los tests
+      - name: Extract coverage summary
+        id: coverage
+        run: |
+          echo 'coverage<<EOF' >> $GITHUB_OUTPUT
+          tail -n 20 coverage.txt >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      - name: Comment coverage on PR
+        uses: actions/github-script@v7
         with:
-          name: Jest Tests
-          path: coverage/coverage-summary.json
-          reporter: jest
-          fail-on-error: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `## 🧪 Code Coverage Summary\n\`\`\`\n${{ steps.coverage.outputs.coverage }}\n\`\`\``;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(comment =>
+              comment.body.includes('🧪 Code Coverage Summary'));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: output,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: output,
+              });
+            }
