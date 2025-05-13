@@ -26,4 +26,3 @@ Scenario: Verify_container_and_h_tags
     Then verify h4 containing Da en adopción exist
     Then verify h4 containing Apoya la causa exist
     Then close all windows
-
