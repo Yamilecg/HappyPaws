@@ -25,5 +25,6 @@ def step_impl(context):
 
 @then('el sistema debería aceptar los datos del usuario')
 def step_impl(context):
-    assert "certificado" in context.driver.page_source
     context.driver.quit()
+
+

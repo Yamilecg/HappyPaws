@@ -24,7 +24,7 @@ def step_select_breed(context, breed):
 @then('Se muestra información relacionada con "{breed}"')
 def step_show_breed_info(context, breed):
     WebDriverWait(context.driver, 15).until(
-        EC.presence_of_element_located((By.XPATH, f"//h1[text()='{breed}']"))
+        EC.text_to_be_present_in_element((By.ID, 'dogInfoName'), breed)
     )
     assert breed in context.driver.page_source
     context.driver.quit()

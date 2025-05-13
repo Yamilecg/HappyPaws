@@ -12,8 +12,8 @@ def step_impl(context):
 
 @when('El usuario hace clic en el botón "Agregar"')
 def step_impl(context):
-    agregar_button = context.driver.find_element(By.XPATH, "//button[contains(text(),'Agregar')]")
-    agregar_button.click()
+    agregar_link = context.driver.find_element(By.XPATH, "//a[contains(@href, 'uploadDog.html')]")
+    agregar_link.click()
     time.sleep(1)
 
 @then('El navegador redirige a la página "uploadDog.html"')
