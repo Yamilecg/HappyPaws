@@ -1,6 +1,9 @@
 from behave import given, when, then
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
@@ -38,6 +41,15 @@ def step_click_submit_button(context):
         By.XPATH, '//*[@id="iniciarSesionModal"]/div/div/div[2]/div[3]/button'
     ).click()
     time.sleep(2)
+
+    try:
+        WebDriverWait(context.driver, 3).until(EC.alert_is_present())
+        alert = context.driver.switch_to.alert
+        alert.accept()
+    except NoAlertPresentException:
+        print("No se encontró ninguna alerta")
+    
+    time.sleep(3)
 
 
 @then("I should be logged in successfully")

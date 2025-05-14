@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-@given("El usuario está en la página de perritos")
+@given("The user is on dogs page")
 def step_open_dog_page(context):
     context.driver = webdriver.Chrome()
     context.driver.get("http://localhost/index.html#portfolio")
@@ -16,7 +16,7 @@ def step_open_dog_page(context):
     )
 
 
-@when('El usuario selecciona "Husky" en el filtro de raza')
+@when('The user selects "Husky" in the breed filter')
 def step_select_husky_breed(context):
     breed_dropdown = WebDriverWait(context.driver, 10).until(
         EC.visibility_of_element_located((By.ID, "filtro"))
@@ -27,7 +27,7 @@ def step_select_husky_breed(context):
     time.sleep(5)
 
 
-@then('El filtro de raza muestra "Husky"')
+@then('The filter shows "Husky" in the breed filter')
 def step_verify_husky_displayed(context):
     selected_breed = context.driver.find_element(By.ID, "filtro")
     selected_breed_value = selected_breed.get_attribute("value")
