@@ -1,6 +1,6 @@
 const request = require('supertest');
 const mongoose = require('mongoose');
-const app = require('../../app');  // Asumiendo que tu archivo app.js está en esa ubicación
+const app = require('../../app');
 
 const mongoConnection = "mongodb+srv://arlynlinette:H1B1OG0FD5ZSJQpp@cluster0.x77irwc.mongodb.net/";
 
@@ -34,8 +34,6 @@ describe('GET /infodogs - Obtener razas de perros', () => {
     });
 
     test('should return status 500 if there is an error', async () => {
-        // Aquí podrías simular un error en la base de datos si es necesario
-        // Para este test, asumimos que el endpoint está funcionando bien
         const response = await request(app).get('/infodogs');
         expect(response.status).not.toBe(500);  // Verificamos que no falle
     });

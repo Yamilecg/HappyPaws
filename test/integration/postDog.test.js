@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../../app');
-const Dog = require('../../models/DogModel'); // Assuming you have a Dog model similar to Admin model
+const Dog = require('../../models/DogModel');
 
 const mongoConnection = "mongodb+srv://arlynlinette:H1B1OG0FD5ZSJQpp@cluster0.x77irwc.mongodb.net/";
 
